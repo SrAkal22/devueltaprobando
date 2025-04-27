@@ -27,15 +27,9 @@ header {
     top: 0;
     z-index: 999;
     display: flex;
-    justify-content: center; /* Asegura que el contenido esté centrado */
+    justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Línea sutil en la parte inferior */
-}
-
-/* Contenedor del logo */
-.header-logo-container {
-    text-align: center; /* Centrado del logo */
-    flex-grow: 1;
 }
 
 /* Logo */
@@ -43,10 +37,11 @@ header {
     font-size: 2.5em; /* Tamaño del logo */
     font-weight: bold;
     color: #8e44ad;
-    text-align: center; /* Asegura que el texto del logo esté centrado */
+    text-align: center;
+    flex-grow: 1;
 }
 
-/* Botón modo oscuro/claro */
+/* Botón del modo oscuro/ claro */
 #modo-toggle {
     background: none;
     border: none;
@@ -54,8 +49,6 @@ header {
     font-size: 1.5em;
     cursor: pointer;
     transition: transform 0.3s;
-    position: absolute;
-    right: 2em; /* Ajustamos la posición para que se ubique a la derecha */
 }
 
 #modo-toggle:hover {
@@ -152,24 +145,54 @@ body.claro .whatsapp-btn:hover {
     background-color: #17a34f;
 }
 
-/* Responsive */
+/* Media Queries para dispositivos pequeños */
 @media (max-width: 768px) {
+    /* Ajustar logo */
+    .logo {
+        font-size: 2em; /* Reducir tamaño del logo en pantallas pequeñas */
+    }
+
+    /* Ajustar el padding en la sección */
+    .section {
+        padding: 3em 1.5em;
+    }
+
+    /* Cambiar el tamaño del texto */
+    .section h1,
+    .section h2 {
+        font-size: 2em;
+    }
+
+    .section p {
+        font-size: 1em;
+    }
+
+    /* Hacer que el menú sea más accesible */
+    header {
+        padding: 1em;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .nav-links {
         display: none;
-        flex-direction: column;
-        background-color: #24243e;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 1em;
-        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+        margin-top: 1em;
     }
 
     .nav-links.show {
-        display: flex;
+        display: block;
     }
 
+    /* Botón para el menú en móviles */
     .menu-toggle {
         display: block;
+        font-size: 1.5em;
+        margin-top: 1em;
+    }
+
+    #modo-toggle {
+        font-size: 2em; /* Aumentar el tamaño del ícono del modo claro/oscuro */
     }
 }
